@@ -1,0 +1,70 @@
+====================================================================
+📚 LIBRARY MANAGEMENT SYSTEM - PROJECT DEVELOPMENT GUIDE
+====================================================================
+
+This file contains important information to continue developing or 
+resetting your library project.
+
+--------------------------------------------------------------------
+1. HOW TO START THE APPLICATION
+--------------------------------------------------------------------
+- BACKEND:
+  Open terminal -> cd backend -> npm start
+  (Server runs on http://localhost:5000)
+
+- FRONTEND:
+  Open terminal -> cd frontend -> npm start
+  (Web app runs on http://localhost:3000)
+
+--------------------------------------------------------------------
+2. DATABASE SETUP & RESET (MySQL)
+--------------------------------------------------------------------
+Run these commands in your MySQL terminal to clear all data and 
+start with a fresh system:
+
+SET FOREIGN_KEY_CHECKS = 0;
+TRUNCATE TABLE WrittenBy; TRUNCATE TABLE Borrows; TRUNCATE TABLE SendRequest;
+TRUNCATE TABLE Complaints; TRUNCATE TABLE Member; TRUNCATE TABLE Author;
+TRUNCATE TABLE Employee; TRUNCATE TABLE Admin; TRUNCATE TABLE Books;
+SET FOREIGN_KEY_CHECKS = 1;
+
+-- Add your main Admin account so you can log in:
+INSERT INTO Admin (name, email) VALUES ('System Admin', 'admin@library.com');
+
+--------------------------------------------------------------------
+3. LOGIN INFORMATION
+--------------------------------------------------------------------
+- ADMIN ID: 1
+- EMPLOYEE IDs: Created via Admin Page
+- MEMBER IDs: Created via Admin Page
+
+--------------------------------------------------------------------
+4. HOW TO ADD DATA (ORDER OF OPERATIONS)
+--------------------------------------------------------------------
+To avoid "Unknown" details in your books, follow these steps in the app:
+1. Login as ADMIN: Create your first Employee and Member.
+2. Login as EMPLOYEE:
+   a. Go to "Author Management" -> Add an Author.
+   b. Go to "Book Management" -> Add a Book.
+   c. Use "Link Author to Book" -> Select the Author and Book, then click "Link Them".
+
+--------------------------------------------------------------------
+5. BULK LINKING BOOKS (If you have many "Unknowns")
+--------------------------------------------------------------------
+Run this SQL query to link many books to authors at once:
+
+INSERT IGNORE INTO WrittenBy (author_id, book_id) VALUES
+(1, 1), (1, 2), (1, 3),   -- Link books 1,2,3 to Author 1
+(2, 4), (2, 5), (2, 6);   -- And so on...
+
+--------------------------------------------------------------------
+6. IMPORTANT FILE PATHS
+--------------------------------------------------------------------
+- Database Config: backend/config/db.js
+- Admin Management: frontend/src/pages/AdminPage.js
+- Employee Operations: frontend/src/pages/EmployeePage.js
+- Stock Logic: backend/controllers/borrowController.js
+
+====================================================================
+Project Status: COMPLETED & SYNCED WITH SCHEMA
+====================================================================
