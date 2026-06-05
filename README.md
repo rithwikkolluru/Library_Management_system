@@ -1,6 +1,6 @@
 #  Library Management System
 
-A full-stack **Library Management System** built with **React**, **Node.js/Express**, and **MySQL**. The system supports three distinct user roles — Admin, Employee, and Member — each with their own dashboard and set of operations for managing books, authors, members, borrowing, and complaints.
+This Full-Stack **Library Management System** is a comprehensive, role-based web application designed to streamline library operations, automate book tracking, and enhance communication between library staff and members. Built using the robust **PERN/MERN-variant stack (React, Node.js, Express, and MySQL)**, the platform replaces traditional ledger-based tracking with a secure, relational database system.The application implements strict Role-Based Access Control (RBAC) across three distinct user dimensions: Admin, Employee, and Member. Each role is greeted with a tailored dashboard that optimizes their unique workflow, from macro-level system administration to micro-level book browsing.
 
 ---
 
